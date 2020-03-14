@@ -1,0 +1,289 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;==========================================================
+
+[colors]
+background = ${xrdb:background:#222}
+;background = #bd93f9
+background-alt = #444
+foreground = ${xrdb:foreground:#222}
+foreground-alt = #555
+;foreground = #dfdfdf
+;accent = ${xrdb:background:#222}
+;icon-background = #bd93f9
+accent = #bd93f9
+
+[formatting]
+icon-padding = 3.5
+
+[bar/master]
+width = 100%
+
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+
+font-0 = "Roboto:size=11:style:Regular;2"
+font-1 = "Symbols Nerd Font:style=2048-em:size=12;2"
+
+modules-left = space files chrome spotify terminal atom vim visual-studio python-ide intellij eclipse gtk-ide 
+modules-center = date
+modules-right = alsa
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/rightmon]
+inherit = bar/master
+monitor = DP-1
+height = 3%
+
+[bar/centermon]
+inherit = bar/master
+monitor = HDMI-0
+height = 2.5%
+
+[bar/leftmon]
+inherit = bar/master
+monitor = DP-4
+height = 3%
+
+[module/icons]
+type = custom/script
+format = <label>
+format-foreground = ${colors.foreground}
+;format-background = ${colors.icon-background}
+format-underline = ${colors.accent}
+format-padding = ${formatting.icon-padding} 
+
+[module/space]
+inherit = module/icons
+exec = echo "  "
+format-padding = 0
+
+[module/files]
+inherit = module/icons
+;label-font = 6
+exec = echo ""
+click-left = nemo
+
+[module/chrome]
+inherit = module/icons
+exec = echo ""
+click-left = google-chrome-stable
+
+[module/spotify]
+inherit = module/icons
+exec = echo ""
+click-left = spotify
+
+[module/terminal]
+inherit = module/icons
+;label-font = 6
+exec = echo ""
+click-left = kitty
+
+[module/atom]
+inherit = module/icons
+;label-font = 6
+click-left = atom
+exec = echo ""
+
+[module/visual-studio]
+inherit = module/icons
+;label-font = 6
+exec = echo ""
+click-left = code
+
+[module/vim]
+inherit = module/icons
+exec = echo ""
+click-left = urxvt -e sh -c "vim;bash"
+
+[module/intellij]
+inherit = module/icons
+;label-font = 6
+exec = echo ""
+click-left = idea
+
+[module/eclipse]
+inherit = module/icons
+exec = echo ""
+click-left = eclipse
+
+[module/python-ide]
+inherit = module/icons
+;label-font = 6
+exec = echo ""
+click-left = pycharm
+
+[module/gtk-ide]
+inherit = module/icons
+exec = echo ""
+click-left = anjuta 
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground}
+;format-underline = ${colors.bottom-border}
+label = %percentage:2%%
+format-padding = 4
+label-font = 8
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+;format-underline = ${colors.bottom-border}
+label = %percentage_used%%
+format-padding = 4
+label-font = 8
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = "%Y-%m-%d"
+
+time = " %I:%M %p "
+time-alt = %H:%M:%S
+;format-font = 8
+;format-prefix = %{T3}%{T-}
+;format-prefix-foreground = ${colors.foreground}
+;format-underline = ${colors.bottom-border}
+;format-suffix = %{T3}    %{T-}
+label = %date% %time%
+
+[module/alsa]
+type = internal/alsa
+
+;format-volume = <ramp-volume>
+;ramp-volume-0 = 
+;ramp-volume-1 = 
+;ramp-volume-2 = 
+;ramp-volume-font = 6
+;format-margin = 3
+format-volume = <label-volume> <bar-volume>
+label-volume-foreground = ${root.foreground}
+label-volume = 
+format-muted-foreground = ${colors.foreground}
+label-muted = ﱝ
+label-muted-padding = 5
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.accent}
+bar-volume-foreground-1 = ${colors.accent}
+bar-volume-foreground-2 = ${colors.accent}
+bar-volume-foreground-3 = ${colors.accent}
+bar-volume-foreground-4 = ${colors.accent}
+bar-volume-foreground-5 = ${colors.accent}
+bar-volume-foreground-6 = ${colors.accent}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-foreground = ${colors.accent}
+
+bar-volume-fill =  
+;bar-volume-fill-font = 1 
+bar-volume-empty = 
+;bar-volume-empty-font = 1
+bar-volume-empty-foreground = ${colors.foreground-alt}
+format-volume-padding = 5
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #ff5555
+label-font = 2
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
+format-padding = 5
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
+;
+;   ___     ___      ___  
+;  | __|   / _ \    | __| 
+;  | _|   | (_) |   | _|  
+;  |___|   \___/   _|_|_  
+;_|"""""|_|"""""|_| """ | 
+;"`-0-0-'"`-0-0-'"`-0-0-' 

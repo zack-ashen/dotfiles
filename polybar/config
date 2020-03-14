@@ -165,12 +165,6 @@ exec = python ~/Coding/Scripts/polybar-spotify/spotify_status.py -f '{play_pause
 [module/alsa]
 type = internal/alsa
 
-;format-volume = <ramp-volume>
-;ramp-volume-0 = 
-;ramp-volume-1 = 
-;ramp-volume-2 = 
-;ramp-volume-font = 6
-;format-margin = 3
 format-volume = <label-volume> <bar-volume>
 label-volume-foreground = ${root.foreground}
 label-volume = 
@@ -195,25 +189,6 @@ bar-volume-empty = 
 ;bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.foreground-alt}
 format-volume-padding = 5
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = #ff5555
-label-font = 2
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground}
-format-padding = 5
 
 [module/powermenu]
 type = custom/menu

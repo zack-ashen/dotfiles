@@ -1,13 +1,12 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
+
+#  ██╗██████╗ 
+#  ██║╚════██╗
+#  ██║ █████╔╝
+#  ██║ ╚═══██╗
+#  ██║██████╔╝
+#  ╚═╝╚═════╝ 
+#             
+
 
 #AUTOSTART
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -22,6 +21,7 @@ bindsym Mod4+Shift+a exec atom
 bindsym Mod4+Shift+m exec spotify
 bindsym Mod4+Shift+i exec code
 bindsym Mod4+Shift+y exec google-chrome-stable www.youtube.com
+
 #CUSTOMIZE STYLE
 border_radius 5
 smart_gaps on
@@ -29,9 +29,6 @@ for_window [class=".*"] border pixel 0
 gaps inner 15
 
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -220,6 +217,10 @@ bindsym Mod4+r mode "resize"
 #######################################################################
 exec i3-config-wizard
 
-#====================================
-#====================================
-#====================================
+#  ███████╗ ██████╗ ███████╗
+#  ██╔════╝██╔═══██╗██╔════╝
+#  █████╗  ██║   ██║█████╗  
+#  ██╔══╝  ██║   ██║██╔══╝  
+#  ███████╗╚██████╔╝██║     
+#  ╚══════╝ ╚═════╝ ╚═╝     
+#                           

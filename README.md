@@ -36,6 +36,7 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * _autoconf_
 * _xorg-xrandr_
 * _nitrogen_
+* _zsh_
 * _oh-my-zsh-git_
 
 ### __Desktop Environment:__

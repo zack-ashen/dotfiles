@@ -36,6 +36,7 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * _autoconf_
 * _xorg-xrandr_
 * _nitrogen_
+* _oh-my-zsh-git_
 
 ### __Desktop Environment:__
 * _xorg-server_
@@ -51,6 +52,7 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * __Icon Theme__: Papirus (_papirus-icon-theme_)
 * __GTK Theme__: Ant-Dracula (_AUR: ant-dracula-gtk-theme_)
 * __Display Manager Greeter THeme:__ Webkit 2 (_lightdm-webkit2-greeter_)
+* __ZSH Theme:__ [Pure Theme](https://github.com/sindresorhus/pure)
 
 ### __Fonts__:
 * __Fira Code:__ (_ttf-fira-code_)

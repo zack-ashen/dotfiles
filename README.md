@@ -27,6 +27,7 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * __Alt. Java IDE:__ IntelliJ Idea (_intellij-idea-community-edition_)
 * __Python IDE:__ PyCharm Community Edition (_pycharm-community-edition_)
 * __Media Player:__ VLC (_vlc_)
+* __GTK IDE:__ Anjuta (_anjuta_)
 
   ### __Packages:__
 * _git_

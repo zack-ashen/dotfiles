@@ -28,6 +28,8 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * __Python IDE:__ PyCharm Community Edition (_pycharm-community-edition_)
 * __Media Player:__ VLC (_vlc_)
 * __GTK IDE:__ Anjuta (_anjuta_)
+* __Photo Editor:__ GIMP (_gimp_)
+* __Image Viewer:__ feh (_feh_)
 
   ### __Packages:__
 * _git_
@@ -36,6 +38,9 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * _autoconf_
 * _xorg-xrandr_
 * _nitrogen_
+* _neofetch_
+* _AUR: tty-clock_
+* _asciiquarium_
 * _zsh_
 * _oh-my-zsh-git_
 

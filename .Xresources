@@ -1,0 +1,79 @@
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+
+!! URxvt Appearance
+URxvt.cursorBlink: true
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.font: xft:Fira Code:style=Regular:size=11, xft:DejaVu Sans Mono:size=11
+URxvt.boldFont: xft:Hack:style=Bold:size=11
+URxvt.italicFont: xft:Hack:style=Italic:size=11
+URxvt.boldItalicFont: xft:Hack:style=Bold Italic:size 11
+URxvt.letterSpace: -1
+URxvt.lineSpace: -1
+URxvt.internalBorder: 7.5
+URxvt.depth: 32
+URxvt.background: [95]#282A36
+Xcursor.size: 16
+
+! Base16 Dracula
+! Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+
+base00: #282936
+base01: #3a3c4e
+base02: #4d4f68
+base03: #626483
+base04: #62d6e8
+base05: #e9e9f4
+base06: #f1f2f8
+base07: #f7f7fb
+base08: #ea51b2
+base09: #b45bcf
+base0A: #00f769
+ase0B: #ebff87
+base0C: #a1efe4
+base0D: #62d6e8
+base0E: #b45bcf
+base0F: #00f769
+
+! Rofi Color Customization 
+rofi.color-enabled: true
+
+! Property Name     BG       Border   Separator
+rofi.color-window:  #2d303b, #2d303b, #2d303b
+
+! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
+rofi.color-normal: #2d303b, #f8f8f2, #2d303b, #5eabc9, #f8f8f2
+rofi.color-active:  argb:c82d303b, #62d6e8, argb:c82d303b, argb:c82d303b, #ff5555
+rofi.color-urgent:  #3a3c4e, #ea51b2, #3a3c4e, #3a3c4e, #ea51b2
+
+! Rofi Window Customizations
+rofi.hide-scrollbar: true
+rofi.show-icons: true
+rofi.fullscreen: true
+rofi.font: Ubuntu 25
+rofi.separator-style: none
+rofi.columns: 3
+rofi.drun-display-format: {name}
+rofi.padding: 50
+rofi.bw: 5
+rofi.icon-theme: Papirus

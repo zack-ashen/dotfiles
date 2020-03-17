@@ -12,6 +12,7 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * __Wallpaper__: <a href="https://www.uhdpaper.com/2018/12/mountains-fog-4k-3840x2160-34.html">Mountains-Fog</a>
 
 ## Applications and Packages
+- [ ] Hello
 
 ### __Desktop Applications__:
 * __Browser:__ Google Chrome (_AUR: google-chrome_)

@@ -1,4 +1,4 @@
-# i3-dotfiles
+# dotfiles
 Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 
 ## Overview

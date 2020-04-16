@@ -20,7 +20,7 @@ Dotfiles for i3 setup. Screenshots are running on Arch Linux.
 * __Music:__ Spotify (_AUR: spotify_)
 * __Terminal Emulator:__ Kitty (_kitty_)
 * __Alt. Terminal Emulator:__ Urxvt (_rxvt-unicode_)
-* __File Manager:__ Thunar (_thunar_)
+* __File Manager:__ pcmanfm (_pcmanfm_)
 * __Terminal File Manager:__ Ranger (_ranger_)
 * __General Purpose IDE:__ Visual Studio Code (_AUR: visual-studio-code-bin_)
 * __Java IDE:__ Eclipse (_eclipse-java_)

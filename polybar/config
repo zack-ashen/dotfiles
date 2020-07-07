@@ -11,228 +11,277 @@
 ;
 ;==========================================================
 
-[colors]
-background = ${xrdb:background:#222}
-;background = #bd93f9
-background-alt = #444
-foreground = ${xrdb:foreground:#222}
-foreground-alt = #555
-;foreground = #dfdfdf
-;accent = ${xrdb:background:#222}
-;icon-background = #bd93f9
-accent = #5EABC9
+[variables]
+padding = 3.5
 
-[formatting]
-icon-padding = 3.5
+[colors]
+background-bottom = #F235384a
+background-top = #F236394a
+background-alt = #444
+foreground = #f8f8f2
+foreground-alt = #555
+accent = #4084d6
+audio-accent = #4084d6
+dark-background = #29284f
 
 [bar/master]
-width = 100%
-
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
 line-size = 3
 
-font-0 = "Roboto:size=14:style:Regular;2"
-font-1 = "Symbols Nerd Font:style=2048-em:size=18;2"
-
-modules-left = space files chrome youtube spotify terminal atom vim visual-studio python-ide intellij eclipse gtk-ide 
-modules-center = date
-modules-right = alsa powermenu
+font-0 = "Fira Sans:size=12:antialias=true:style:Medium;3"
+font-2 = "feather:size=14:style=Regular;3"
+font-3 = "Symbols Nerd Font:style=2048-em:size=14;2"
+font-4 = NotoEmoji:scale=1.25;4
+font-1 = "Weather Icons:style=Regular:size=13;3"
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+radius = 18.0
 
-[bar/rightmon]
+monitor = DisplayPort-1
+height = 2.5%
+border-top-size = 5
+
+;[bar/stocks]
+;inherit = bar/master
+;width = 430
+;modules-center = gainers losers active
+;background-0 = ${colors.background-top}
+;background-1 = ${colors.background-bottom}
+;border-left-size = 10
+;offset-x = 10
+;override-redirect=true
+;wm-restack = i3
+
+[bar/initinfo]
 inherit = bar/master
-monitor = DP-1
-height = 4%
+width = 230
+modules-center = weather airquality
+background-0 = ${colors.background-top}
+background-1 = ${colors.background-bottom}
+;border-left-size = 10
+offset-x = 10
+override-redirect=true
+wm-restack = i3
 
-[bar/centermon]
+[bar/date]
 inherit = bar/master
-monitor = HDMI-0
-height = 3.5%
+width = 100
+modules-center = date
+background-0 = ${colors.background-top}
+background-1 = ${colors.background-bottom}
+offset-x = 1230
+override-redirect=true
+wm-restack = i3
 
-[bar/leftmon]
+
+[bar/info]
 inherit = bar/master
-monitor = DP-4
-height = 4%
+width = 450
+modules-center = alsa cpu temperature memory wifi updates
+offset-x = 2030
+background-0 = ${colors.background-top}
+background-1 = ${colors.background-bottom}
+override-redirect=true
+wm-restack = i3
 
-[module/icons]
+
+[bar/power]
+inherit=bar/master
+width = 2550
+modules-center = powermenu
+background = #4084d6
+;offset-x = 2490
+;override-redirect=true
+;wm-restack = i3
+border-left-size = 2490
+
+
+[module/weather]
 type = custom/script
-format = <label>
-format-foreground = ${colors.foreground}
-;format-background = ${colors.icon-background}
-format-underline = ${colors.accent}
-format-padding = ${formatting.icon-padding} 
+exec = ~/.config/polybar/scripts/polybarforecast 
+exec-if = ping openweathermap.org -c 1
+interval = 600
+label-font = 1
+label-padding = 5
 
-[module/space]
-inherit = module/icons
-exec = echo "  "
-format-padding = 0
 
-[module/files]
-inherit = module/icons
-;label-font = 6
-exec = echo ""
-click-left = nemo
+[module/airquality]
+type = custom/script
+exec = ~/.config/polybar/scripts/airquality.sh
+interval = 600
+label-padding = 5
 
-[module/chrome]
-inherit = module/icons
-exec = echo ""
-click-left = google-chrome-stable
 
-[module/youtube]
-inherit = module/icons
-exec = echo ""
-click-left = google-chrome-stable www.youtube.com
+[module/gainers]
+type = custom/script
+exec = ~/Jack/Coding/polystock/polystock.py --biggestgainer
+tail = true
+label =  %output%
+label-padding = 3
 
-[module/spotify]
-inherit = module/icons
-exec = echo ""
-click-left = spotify
+[module/losers]
+type = custom/script
+exec = ~/Jack/Coding/polystock/polystock.py --biggestloser
+tail = true
+label =  %output%
+label-padding = 3
 
-[module/terminal]
-inherit = module/icons
-;label-font = 6
-exec = echo ""
-click-left = kitty
+[module/active]
+type = custom/script
+exec = ~/Jack/Coding/polystock/polystock.py --mostactive
+tail = true
+label =  %output%
+label-padding = 3
 
-[module/atom]
-inherit = module/icons
-;label-font = 6
-click-left = atom
-exec = echo ""
-
-[module/visual-studio]
-inherit = module/icons
-;label-font = 6
-exec = echo ""
-click-left = code
-
-[module/vim]
-inherit = module/icons
-exec = echo ""
-click-left = urxvt -e sh -c "vim;bash"
-
-[module/intellij]
-inherit = module/icons
-;label-font = 6
-exec = echo ""
-click-left = idea
-
-[module/eclipse]
-inherit = module/icons
-exec = echo ""
-click-left = eclipse
-
-[module/python-ide]
-inherit = module/icons
-;label-font = 6
-exec = echo ""
-click-left = pycharm
-
-[module/gtk-ide]
-inherit = module/icons
-exec = echo ""
-click-left = anjuta 
 
 [module/date]
 type = internal/date
 interval = 5
 
-date =
 date-alt = "%Y-%m-%d"
+time = "%I:%M %p"
+label = %time%
 
-time = " %I:%M %p "
-time-alt = %H:%M:%S
-;format-font = 8
-;format-prefix = %{T3}%{T-}
-;format-prefix-foreground = ${colors.foreground}
-;format-underline = ${colors.bottom-border}
-;format-suffix = %{T3}    %{T-}
-label = %date% %time%
-
-[module/spotify-media]
-type = custom/script
-interval = 1
-format-prefix = " "
-format = <label>
-exec = python ~/Coding/Scripts/polybar-spotify/spotify_status.py -f '{play_pause} {song} - {artist} - {album}'
 
 [module/alsa]
 type = internal/alsa
 
-format-volume = <label-volume> <bar-volume>
-label-volume-foreground = ${root.foreground}
-label-volume = 
-format-muted-foreground = ${colors.foreground}
-label-muted = ﱝ
-label-muted-padding = 5
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.accent}
-bar-volume-foreground-1 = ${colors.accent}
-bar-volume-foreground-2 = ${colors.accent}
-bar-volume-foreground-3 = ${colors.accent}
-bar-volume-foreground-4 = ${colors.accent}
-bar-volume-foreground-5 = ${colors.accent}
-bar-volume-foreground-6 = ${colors.accent}
-bar-volume-gradient = false
-bar-volume-indicator = 
-bar-volume-indicator-foreground = ${colors.accent}
+format-volume = <ramp-volume>
+label-volume-foreground = ${colors.foreground}
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+format-volume-padding = ${variables.padding}
+;format-volume-background = ${colors.dark-background}
 
-bar-volume-fill =  
-;bar-volume-fill-font = 1 
-bar-volume-empty = 
-;bar-volume-empty-font = 1
-bar-volume-empty-foreground = ${colors.foreground-alt}
-format-volume-padding = 5
+
+[module/wifi]
+type = internal/network
+; Name of the network interface to display. You can get the names of the
+; interfaces on your machine with `ip link`
+; Wireless interfaces often start with `wl` and ethernet interface with `eno` or `eth`
+interface = eno2
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+udspeed-minwidth = 5
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices like USB network adapters have
+; an unknown state, even when they're running
+; Default: false
+unknown-as-up = true
+
+format-connected = <label-connected>
+label-connected = 
+label-connected-padding= 5
+
+format-disconeccted = <label-disconnected>
+label-disconnected =  
+label-disconnected-padding = 5
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 1
+format = <label>
+label =   %gb_used%
+label-padding = ${variables.padding}
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 1.5
+format = <label>
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label =   %%percentage%
+format-padding = ${variables.padding}
+
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+; 4 or 5
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
+
+; Base temperature for where to start the ramp (in degrees celsius)
+; Default: 0
+base-temperature = 20
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 60
+;label =  %{F#fad000}%{F-} %temperature-c%
+;label =   %temperature-c%
+label =  %temperature-c%
+format = <label>
+format-padding = ${variables.padding}
+;format-background = ${colors.dark-background}
+
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates.sh
+interval = 10
+label =  
+label-padding = ${variables.padding}
 
 [module/powermenu]
-type = custom/menu
- 
-expand-right = true
- 
-format-spacing = 0
- 
-label-open =  
-label-open-background = ${colors.accent}
-label-open-padding = 5
-label-open-foreground = ${colors.foreground}
-label-close =  
-label-close-foreground = ${colors.foreground}
-label-separator = |
-label-separator-foreground = ${colors.foreground}
-label-separator-font = 5
- 
-label-close-padding = 4 
- 
-menu-0-1-padding = 4 
-menu-0-0-padding = 4 
- 
-menu-0-0 = 
-menu-0-0-exec = sudo reboot
-menu-0-1 = 
-menu-0-1-exec = sudo shutdown now
- 
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
+type = custom/text
+content = 
+content-padding = 5
+click-left = exec ~/.config/rofi/android/powermenu.sh
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 5 
+margin-bottom = 5 
 
 ; vim:ft=dosini
 ;
-;   ___     ___      ___  
-;  | __|   / _ \    | __| 
-;  | _|   | (_) |   | _|  
-;  |___|   \___/   _|_|_  
-;_|"""""|_|"""""|_| """ | 
-;"`-0-0-'"`-0-0-'"`-0-0-' 
+;   ___     ___      ___
+;  | __|   / _ \    | __|
+;  | _|   | (_) |   | _|
+;  |___|   \___/   _|_|_
+;_|"""""|_|"""""|_| """ |
+;"`-0-0-'"`-0-0-'"`-0-0-'
+; vim:ft=dosini

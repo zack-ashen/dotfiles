@@ -1,58 +1,38 @@
 
-#  ██╗██████╗
+#  ██╗██████╗ 
 #  ██║╚════██╗
 #  ██║ █████╔╝
 #  ██║ ╚═══██╗
 #  ██║██████╔╝
-#  ╚═╝╚═════╝
-#
+#  ╚═╝╚═════╝ 
+#             
 
 
 #AUTOSTART
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id  nitrogen --restore &
-exec_always --no-startup-id picom --experimental-backends --backend glx --shadow-ignore-shaped
+exec_always --no-startup-id picom &
 exec --no-startup-id xinput --set-prop 12 'libinput Accel Speed' 1 &
-exec rm -rf ~/Jack/'$RECYCLE.BIN'; rm -rf ~/Jack/'System Volume Information';
-exec xset s off -dpms
-exec google-drive-ocamlfuse ~/Google\ Drive
-exec --no-startup-id xautolock -time 8 -locker 'i3lock --insidevercolor=bd93f900 --insidecolor=282a36bf --insidewrongcolor=ff5555bf --ringvercolor=8be9fdff --ringcolor=44475aff --linecolor=ffffff00 --keyhlcolor=50fa7bff --ringwrongcolor=ff5555ff --bshlcolor=bd93f9ff --veriftext="" --noinputtext="" --locktext="" --lockfailedtext="" --wrongtext="" --greetertext="" --greetercolor=ffffffff --greeterpos="3200:550" --blur=20'
 
 #CUSTOM BIND KEYS
 bindsym Mod4+Shift+b exec google-chrome-stable
-bindsym Mod4+Shift+f exec pcmanfm
+bindsym Mod4+Shift+f exec nemo
 bindsym Mod4+Shift+a exec atom
 bindsym Mod4+Shift+m exec spotify
 bindsym Mod4+Shift+i exec code
 bindsym Mod4+Shift+y exec google-chrome-stable www.youtube.com
-bindsym Mod4+Shift+t exec google-chrome-stable https://keep.google.com/u/0/
-bindsym Mod4+Return exec kitty
-bindsym Mod4+x exec i3lock --insidevercolor=bd93f900 --insidecolor=282a36bf --insidewrongcolor=ff5555bf --ringvercolor=8be9fdff --ringcolor=44475aff --linecolor=ffffff00 --keyhlcolor=50fa7bff --ringwrongcolor=ff5555ff --bshlcolor=bd93f9ff --veriftext="" --noinputtext="" --locktext="" --lockfailedtext="" --wrongtext="" --greetertext="" --greetercolor=ffffffff --greeterpos="3200:550" --blur=20
 
 #CUSTOMIZE STYLE
-border_radius 0 
-#smart_gaps on
-for_window [class="^.*"] border pixel 0
-#for_window [class="Alacritty"] border pixel 4
-for_window [class="kitty"] border pixel 0 
+border_radius 5
+smart_gaps on
+for_window [class=".*"] border pixel 0
+gaps inner 15
 
-gaps inner 9
 
-for_window [class="feh"] floating enable
-for_window [window_role="pop-up"] floating enable
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #4084d6 #4084d6 #ffffff #2e9ef4   #ffffff
-client.focused_inactive #4084d6 #6272a4 #ffffff #484e50   #44475a
-client.unfocused        #333333 #282a36 #888888 #292d2e   #44475a
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-#client.background       #ffffff
-
-title_align center
-
-font pango:Fira Sans 12
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:DejaVu Sans Mono 8
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -84,6 +64,9 @@ set $right l
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
+# start a terminal
+bindsym Mod4+Return exec kitty 
+
 # kill focused window
 bindsym Mod4+Shift+q kill
 
@@ -92,10 +75,7 @@ bindsym Mod4+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-#bindsym Mod4+space exec --no-startup-id rofi -show drun -theme custom.rasi
-bindsym Mod4+space exec --no-startup-id rofi -show drun -theme ~/.config/rofi/custom-alt.rasi
-bindsym Mod4+q exec ~/.config/rofi/android/powermenu.sh
-bindsym Mod4+Shift+Tab exec ~/.config/rofi/windowswitch.sh 
+bindsym Mod4+space exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym Mod4+$left focus left
@@ -136,7 +116,7 @@ bindsym Mod4+w layout tabbed
 bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod4+Tab floating toggle
+bindsym Mod4+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym Mod4+Control+space focus mode_toggle
@@ -239,8 +219,8 @@ exec i3-config-wizard
 
 #  ███████╗ ██████╗ ███████╗
 #  ██╔════╝██╔═══██╗██╔════╝
-#  █████╗  ██║   ██║█████╗
-#  ██╔══╝  ██║   ██║██╔══╝
-#  ███████╗╚██████╔╝██║
-#  ╚══════╝ ╚═════╝ ╚═╝
-#
+#  █████╗  ██║   ██║█████╗  
+#  ██╔══╝  ██║   ██║██╔══╝  
+#  ███████╗╚██████╔╝██║     
+#  ╚══════╝ ╚═════╝ ╚═╝     
+#                           
